@@ -2,17 +2,15 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Form PKL - LPKB Bina Karya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form PKL LPKB Bina Karya</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <img src="logobk.png" alt="Logo LPKB" class="logo">
-    <h1>Form PKL - LPKB Bina Karya</h1>
-
-    <form action="https://formspree.io/f/mblyryre" method="POST" id="pklForm">
-      <label for="nama">Nama Karyasiswa:</label>
+    <h1>Form PKL LPKB Bina Karya</h1>
+    <form id="pklForm" onsubmit="submitForm(event)">
+      <label for="nama">Nama Lengkap:</label>
       <input type="text" id="nama" name="nama" required />
 
       <label for="nik">NIK:</label>
@@ -21,8 +19,8 @@
       <label for="jumlah">Jumlah Pembimbing:</label>
       <select id="jumlah" name="jumlah" onchange="tampilkanPembimbing()" required>
         <option value="">--Pilih--</option>
-        <option value="1">1 Pembimbing</option>
-        <option value="2">2 Pembimbing</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
       </select>
 
       <div id="formPembimbing"></div>
