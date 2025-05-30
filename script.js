@@ -1,4 +1,8 @@
-const namaPembimbing = ["Holdin Farouk", "Andri Nurlena", "Lizun Pidriansya"];
+const namaPembimbing = [
+  "Holdin Farouk",
+  "Andri Nurlena",
+  "Lizun Pidriansya"
+];
 
 function tampilkanPembimbing() {
   const jumlah = document.getElementById('jumlah').value;
@@ -6,14 +10,15 @@ function tampilkanPembimbing() {
   container.innerHTML = '';
 
   if (jumlah === "1") {
-    container.innerHTML += `
+    // Untuk 1 pembimbing, Lizun gak muncul
+    container.innerHTML = `
       <label for="pembimbing1">Pilih Pembimbing</label>
       <select id="pembimbing1" name="pembimbing1" required>
         ${buatOpsiPembimbing("1")}
       </select>
     `;
   } else if (jumlah === "2") {
-    container.innerHTML += `
+    container.innerHTML = `
       <label for="pembimbing1">Pembimbing 1</label>
       <select id="pembimbing1" name="pembimbing1" onchange="updateDropdown()" required>
         ${buatOpsiPembimbing("1")}
@@ -42,30 +47,25 @@ function buatOpsiPembimbing(posisi) {
 function updateDropdown() {
   const pembimbing1 = document.getElementById('pembimbing1').value;
   const pembimbing2Select = document.getElementById('pembimbing2');
-
+  
   Array.from(pembimbing2Select.options).forEach(opt => {
-    opt.disabled = false;
+    opt.disabled = false; // reset dulu semua opsi
 
+    // Jika pembimbing1 = Andri, maka Holdin disabled di pembimbing2
+    if (pembimbing1 === "Andri Nurlena" && opt.value === "Holdin Farouk") {
+      opt.disabled = true;
+    }
+    // Jika pembimbing1 = Holdin, maka Andri disabled di pembimbing2
+    if (pembimbing1 === "Holdin Farouk" && opt.value === "Andri Nurlena") {
+      opt.disabled = true;
+    }
+    // Pembimbing 2 gak boleh sama dengan pembimbing 1
+    if (opt.value === pembimbing1 && pembimbing1 !== "") {
+      opt.disabled = true;
+    }
+    // Jika pembimbing1 = Lizun, maka pembimbing 2 harus kosong (Lizun hanya untuk pembimbing 2)
     if (pembimbing1 === "Lizun Pidriansya") {
-      // Jika Lizun dipilih di posisi 1, hanya dia yang valid di posisi 2
-      opt.disabled = opt.value !== "Lizun Pidriansya";
-    } else {
-      // Lizun tidak boleh muncul kalau bukan dipilih di posisi 1
-      if (opt.value === "Lizun Pidriansya") {
-        opt.disabled = true;
-      }
-
-      if (pembimbing1 === "Andri Nurlena" && opt.value === "Holdin Farouk") {
-        opt.disabled = true;
-      }
-
-      if (pembimbing1 === "Holdin Farouk" && opt.value === "Andri Nurlena") {
-        opt.disabled = true;
-      }
-
-      if (opt.value === pembimbing1 && pembimbing1 !== "") {
-        opt.disabled = true;
-      }
+      opt.disabled = true;
     }
   });
 }
@@ -89,28 +89,34 @@ function submitForm(event) {
     return;
   }
 
-  const formData = new FormData();
-  formData.append("nama", nama);
-  formData.append("nik", nik);
-  formData.append("jumlah", jumlah);
-  formData.append("pembimbing1", pembimbing1);
-  formData.append("pembimbing2", pembimbing2);
+  const data = {
+    nama,
+    nik,
+    jumlah,
+    pembimbing1,
+    pembimbing2
+  };
 
+  // Kirim data ke Formspree
   fetch("https://formspree.io/f/mblyryre", {
     method: "POST",
-    body: formData,
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
   })
-    .then(response => {
-      if (response.ok) {
-        alert("Data berhasil dikirim!");
-        document.getElementById("pklForm").reset();
-        document.getElementById("formPembimbing").innerHTML = "";
-      } else {
-        alert("Gagal mengirim data.");
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      alert("Terjadi kesalahan saat mengirim.");
-    });
+  .then(response => {
+    if (response.ok) {
+      alert("Data berhasil dikirim!");
+      document.getElementById("pklForm").reset();
+      document.getElementById("formPembimbing").innerHTML = "";
+    } else {
+      alert("Gagal mengirim data.");
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("Terjadi kesalahan saat mengirim.");
+  });
 }
