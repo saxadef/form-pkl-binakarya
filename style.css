@@ -27,7 +27,7 @@ h1 {
 
 /* Gradient warna untuk LPKB */
 .lpkb {
-  background: linear-gradient(90deg, #fd683e, #28cfba);
+  background: linear-gradient(90deg, #EB8A03, #79B42C, #07DD55);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* fallback kalau browser gak support */
