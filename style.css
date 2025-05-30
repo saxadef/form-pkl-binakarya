@@ -87,11 +87,11 @@ button:hover {
 }
 
 .info-anim {
-  background: #fefcea;
+  background-color: #fefcea;
   border-left: 5px solid #f7c948;
   padding: 10px 15px;
   margin: 20px 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #333;
   border-radius: 8px;
   animation: pulse 2s ease-in-out infinite;
