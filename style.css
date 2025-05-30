@@ -27,7 +27,7 @@ h1 {
 
 /* Gradient warna untuk LPKB */
 .lpkb {
-  background: linear-gradient(90deg, #fe703e, #28cfba);
+  background: linear-gradient(90deg, #fd683e, #28cfba);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* fallback kalau browser gak support */
@@ -38,7 +38,7 @@ h1 {
 
 /* Warna BINA */
 .bina {
-  color: #fe703e;
+  color: #fd683e;
   font-weight: 900;
   margin-left: 0.05em;
 }
