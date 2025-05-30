@@ -2,34 +2,33 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Form Pembimbing PKL - LPKB BINA KARYA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form PKL - LPKB Bina Karya</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <!-- Tambahkan logo di sini -->
-    <img src="logobk.png" alt="Logo LPKB BINA KARYA" class="logo" />
-    
-    <h1>LPKB BINA KARYA</h1>
-    <h2>Form Pemilihan Pembimbing PKL</h2>
+    <img src="logobk.png" alt="Logo LPKB" class="logo">
+    <h1>Form PKL - LPKB Bina Karya</h1>
 
-    <label for="nama">Nama Karyasiswa</label>
-    <input type="text" id="nama" placeholder="Masukkan nama Anda" />
+    <form action="https://formspree.io/f/mblyryre" method="POST" id="pklForm">
+      <label for="nama">Nama Karyasiswa:</label>
+      <input type="text" id="nama" name="nama" required />
 
-    <label for="nik">NIK Karyasiswa</label>
-    <input type="text" id="nik" placeholder="Masukkan NIK Anda" />
+      <label for="nik">NIK:</label>
+      <input type="text" id="nik" name="nik" required />
 
-    <label for="jumlah">Jumlah Pembimbing</label>
-    <select id="jumlah" onchange="tampilkanPembimbing()">
-      <option value="">--Pilih--</option>
-      <option value="1">1 Pembimbing</option>
-      <option value="2">2 Pembimbing</option>
-    </select>
+      <label for="jumlah">Jumlah Pembimbing:</label>
+      <select id="jumlah" name="jumlah" onchange="tampilkanPembimbing()" required>
+        <option value="">--Pilih--</option>
+        <option value="1">1 Pembimbing</option>
+        <option value="2">2 Pembimbing</option>
+      </select>
 
-    <div id="formPembimbing"></div>
+      <div id="formPembimbing"></div>
 
-    <button onclick="submitForm()">Kirim</button>
+      <button type="submit">Kirim</button>
+    </form>
   </div>
 
   <script src="script.js"></script>
