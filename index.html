@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Pembimbing PKL - LPKB BINA KARYA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Tambahkan logo di sini -->
+    <img src="logobk.png" alt="Logo LPKB BINA KARYA" class="logo" />
+    
+    <h1>LPKB BINA KARYA</h1>
+    <h2>Form Pemilihan Pembimbing PKL</h2>
+
+    <label for="nama">Nama Karyasiswa</label>
+    <input type="text" id="nama" placeholder="Masukkan nama Anda" />
+
+    <label for="nik">NIK Karyasiswa</label>
+    <input type="text" id="nik" placeholder="Masukkan NIK Anda" />
+
+    <label for="jumlah">Jumlah Pembimbing</label>
+    <select id="jumlah" onchange="tampilkanPembimbing()">
+      <option value="">--Pilih--</option>
+      <option value="1">1 Pembimbing</option>
+      <option value="2">2 Pembimbing</option>
+    </select>
+
+    <div id="formPembimbing"></div>
+
+    <button onclick="submitForm()">Kirim</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
