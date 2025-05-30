@@ -1,55 +1,50 @@
 body {
   font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #cbe7ff, #e6f4ff);
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
 }
 
 .container {
-  max-width: 500px;
-  margin: 50px auto;
-  background: white;
+  max-width: 600px;
+  margin: 40px auto;
   padding: 20px;
+  background-color: white;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 20px;
-  max-width: 100px;
-}
-
-h1 {
+h1, h2 {
   text-align: center;
-  color: #00796b;
 }
 
 label {
   display: block;
   margin-top: 10px;
-  font-weight: bold;
 }
 
-input, select {
+input, select, textarea, button {
   width: 100%;
   padding: 8px;
-  margin-top: 4px;
-  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 15px;
   border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 button {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #00796b;
+  background-color: #007bff;
   color: white;
   border: none;
-  width: 100%;
-  border-radius: 6px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #004d40;
+  background-color: #0056b3;
+}
+
+.logo {
+  display: block;
+  max-width: 120px;
+  margin: 0 auto 20px auto;
 }
