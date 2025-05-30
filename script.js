@@ -62,7 +62,7 @@ function submitForm() {
     pembimbing2
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbwpI8GBawr6oJVa-6xEK8RU69Pf6uKsMPhI1x1trOesMpW-eJCkJD44IQVkbeOkYIhdpw/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxCAfuxf7c4Hbfd6m-qN2ZFk1_WBPMgb8rEcjo3B8zO3huR8wuxSYrKfzoNjBgum6LmjA/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
