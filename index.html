@@ -2,29 +2,31 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Form PKL LPKB Bina Karya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Pembimbing PKL - LPKB BINA KARYA</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <!-- Logo di atas judul -->
-    <img src="logobk.png" alt="Logo LPKB Bina Karya" class="logo" />
-
-    <h1>Form PKL LPKB Bina Karya</h1>
+    <!-- Logo -->
+    <img src="logobk.png" alt="Logo LPKB BINA KARYA" class="logo" />
     
+    <h1>LPKB BINA KARYA</h1>
+    <h2>Form Pemilihan Pembimbing PKL</h2>
+
+    <!-- Form dibungkus tag form agar lebih semantik dan onsubmit handler -->
     <form id="pklForm" onsubmit="submitForm(event)">
-      <label for="nama">Nama Lengkap:</label>
-      <input type="text" id="nama" name="nama" required />
+      <label for="nama">Nama Karyasiswa</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
 
-      <label for="nik">NIK:</label>
-      <input type="text" id="nik" name="nik" required />
+      <label for="nik">NIK Karyasiswa</label>
+      <input type="text" id="nik" name="nik" placeholder="Masukkan NIK Anda" required />
 
-      <label for="jumlah">Jumlah Pembimbing:</label>
+      <label for="jumlah">Jumlah Pembimbing</label>
       <select id="jumlah" name="jumlah" onchange="tampilkanPembimbing()" required>
         <option value="">--Pilih--</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
+        <option value="1">1 Pembimbing</option>
+        <option value="2">2 Pembimbing</option>
       </select>
 
       <div id="formPembimbing"></div>
